@@ -1,0 +1,53 @@
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Liczydło</title>
+    <link rel="stylesheet" href="stylowa.css">
+</head>
+<body>
+    <div>
+        <h2>Sprawdzanie liczby</h2>
+        <input id="inputNumber" type="number" step="any" placeholder="Wpisz liczbę">
+    </div>
+    <div>
+        <button type="button" onclick="roundUp()">Zaokrąglij w górę</button>
+        <button type="button" onclick="roundDown()">Zaokrąglij w dół</button>
+        <button type="button" onclick="roundToInteger()">Zaokrąglij do liczby całkowitej</button>
+        <button type="button" onclick="truncateNumber()">Obetnij liczby po przecinku</button>
+    </div>
+    <div>
+        <button type="button" onclick="clearInput()">Usuwanie liczby</button>
+    </div>
+    <div id="result">
+        <h3>Wynik: <span id="resultValue">0</span></h3>
+    </div>
+    <script>
+        function roundUp() {
+            let number = parseFloat(document.getElementById('inputNumber').value);
+            let rounded = Math.ceil(number);
+            console.log(rounded);
+            document.getElementById('resultValue').textContent = rounded;
+        }
+
+        function roundDown() {
+            let number = parseFloat(document.getElementById('inputNumber').value);
+            let rounded = Math.floor(number);
+            console.log(rounded);
+            document.getElementById('resultValue').textContent = rounded;
+        }
+
+        function roundToInteger() {
+            let number = parseFloat(document.getElementById('inputNumber').value);
+            let rounded = Math.round(number);
+            console.log(rounded);
+            document.getElementById('resultValue').textContent = rounded;
+        }
+
+        function clearInput() {
+            document.getElementById('inputNumber').value = '';
+            document.getElementById('resultValue').textContent = '0';
+        }
+    </script>
+
+    </body>
+    </html>
